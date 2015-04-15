@@ -6,15 +6,16 @@
           type="text/css"
           th:href="@{/resources/style.css}" />
 </head>
-<body>
+    <body>
+    <div id="header" th:include="page :: header" />
+    <div id="content">
+        <h1>Welcome to Spitter</h1>
 
-<div id="content">
-    <h1>Welcome to Spitter</h1>
+        <a th:href="@{/spittles}">Spittles</a> |
+        <a th:href="@{/spitter/register}">Register</a>
 
-    <a th:href="@{/spittles}">Spittles</a> |
-    <a th:href="@{/spitter/register}">Register</a>
-
-    <br/>
-</div>
+        <br/>
+    </div>
+    <div id="footer" th:include="page :: copy" />
 </body>
 </html>
