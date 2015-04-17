@@ -31,6 +31,9 @@ public class SpittleController {
     public List<Spittle> spittles(
             @RequestParam(value="max", defaultValue=MAX_LONG_AS_STRING) long max,
             @RequestParam(value="count", defaultValue="20") int count) {
+
+
+
         return spittleRepository.findSpittles(max, count);
     }
 
@@ -38,7 +41,13 @@ public class SpittleController {
     public String spittle(
             @PathVariable("spittleId") long spittleId,
             Model model) {
-        model.addAttribute(spittleRepository.findOne(spittleId));
+
+        Spittle spittle = spittleRepository.findOne(spittleId);
+        if (spittle == null) {
+            throw new SpittleNotFoundException();
+        }
+
+        model.addAttribute(spittle);
         return "spittle";
     }
 }
