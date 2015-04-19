@@ -16,6 +16,10 @@ public class SpittleRepositoryImpl implements SpittleRepository {
         return spittles.subList(0, count <= spittles.size() ? count : spittles.size());
     }
 
+    public void save(Spittle spittle) {
+        spittles.add(spittle);
+    }
+
     public Spittle findOne(long id) {
         for (Spittle spittle : spittles) {
             if (spittle.getId() == id)

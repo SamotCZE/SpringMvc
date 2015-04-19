@@ -15,14 +15,13 @@ public class SpitterRepositoryImpl implements SpitterRepository {
 
     List<Spitter> spitters = new ArrayList<Spitter>();
 
-    @Override
+
     public Spitter save(Spitter spitter) {
         spitter.setId(new Random().nextLong());
         spitters.add(spitter);
         return spitter;
     }
 
-    @Override
     public Spitter findByUsername(String username) {
         for (Spitter spitter : spitters) {
             if (spitter.getUsername().equals(username))
